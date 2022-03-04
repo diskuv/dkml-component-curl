@@ -18,6 +18,7 @@
 *.ml text eol=lf
 *.mli text eol=lf
 *.opam text eol=lf
+*.opam.template text eol=lf
 *.patch text eol=lf
 *.sexp text eol=lf
 *.sh text eol=lf

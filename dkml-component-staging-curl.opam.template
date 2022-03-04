@@ -1,3 +1,4 @@
+name: "dkml-component-staging-curl"
 install: [
   # Windows
   # -------

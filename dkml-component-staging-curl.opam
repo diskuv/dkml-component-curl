@@ -34,6 +34,7 @@ build: [
   ["dune" "install" "-p" name "--create-install-files" name]
 ]
 dev-repo: "git+https://github.com/diskuv/dkml-component-staging-curl.git"
+name: "dkml-component-staging-curl"
 install: [
   # Windows
   # -------
