@@ -1,4 +1,4 @@
-# staging-curl 0.1.0
+# curl 0.1.0
 
 The `staging-curl` component provides `curl` or `curl.exe` on all
 DKML installable platforms, including Windows.
@@ -6,9 +6,7 @@ DKML installable platforms, including Windows.
 This is a component that can be used with [dkml-install-api](https://diskuv.github.io/dkml-install-api/index.html)
 to generate installers.
 
-## Utilities
-
-### curl
+## Usage
 
 > `%{staging-curl:share}%/generic/bin/curl`
 
@@ -25,4 +23,4 @@ See [the Contributors section of dkml-install-api](https://github.com/diskuv/dkm
 
 ## Status
 
-[![Syntax check](https://github.com/diskuv/dkml-component-enduser-unixutils/actions/workflows/syntax.yml/badge.svg)](https://github.com/diskuv/dkml-component-enduser-unixutils/actions/workflows/syntax.yml)
+[![Syntax check](https://github.com/diskuv/dkml-component-unixutils/actions/workflows/syntax.yml/badge.svg)](https://github.com/diskuv/dkml-component-unixutils/actions/workflows/syntax.yml)
