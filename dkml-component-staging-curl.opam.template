@@ -5,7 +5,9 @@ install: [
   #
   # We bundle the authoritative curl.exe so we don't have to force the end-user
   # to have Windows 10 Build 17063 or later which have curl.exe pre-installed.
-  ["install" "-d" "%{_:share}%/staging-files/generic/bin"] {os = "win32"}
+  ["install" "-d"
+      "%{_:share}%/staging-files/windows_x86/bin"
+      "%{_:share}%/staging-files/windows_x86_64/bin"]
   [
     "unzip"
     "-o"
@@ -16,17 +18,20 @@ install: [
     "curl-7.81.0-win32-mingw/bin/curl-ca-bundle.crt"
     "curl-7.81.0-win32-mingw/bin/libcurl.def"
     "curl-7.81.0-win32-mingw/bin/libcurl.dll"
-  ] {os = "win32"}
+  ]
   [
     "sh"
-    "-euxc"
+    "-euc"
     """
-    mv \\
-      '%{_:share}%'/staging-files/curl-7.81.0-win32-mingw/bin/* \\
-      '%{_:share}%'/staging-files/generic/bin/
+    install \\
+        '%{_:share}%'/staging-files/curl-7.81.0-win32-mingw/bin/* \\
+        '%{_:share}%'/staging-files/windows_x86/bin/
+    install \\
+        '%{_:share}%'/staging-files/curl-7.81.0-win32-mingw/bin/* \\
+        '%{_:share}%'/staging-files/windows_x86_64/bin/
     rm -rf '%{_:share}%'/staging-files/curl-7.81.0-win32-mingw
     """
-  ] {os = "win32"}
+  ]
 ]
 extra-source "dl/curl-7.81.0_1-win32-mingw.zip" {
   src: "https://curl.se/windows/dl-7.81.0_1/curl-7.81.0_1-win32-mingw.zip"

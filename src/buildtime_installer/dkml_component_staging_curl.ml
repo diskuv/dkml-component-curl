@@ -4,16 +4,16 @@ open Bos
 
 let execute_install ctx =
   let ocamlrun =
-    ctx.Context.path_eval "%{staging-ocamlrun:share}%/generic/bin/ocamlrun"
+    ctx.Context.path_eval "%{staging-ocamlrun:share-abi}%/bin/ocamlrun"
   in
   if not Sys.win32 then
     log_spawn_and_raise
       Cmd.(
         v (Fpath.to_string ocamlrun)
         % Fpath.to_string
-            (ctx.Context.path_eval "%{_:share}%/generic/unix_install.bc")
+            (ctx.Context.path_eval "%{_:share-generic}%/unix_install.bc")
         % "-target"
-        % Fpath.to_string (ctx.Context.path_eval "%{_:share}%/generic/bin/curl"))
+        % Fpath.to_string (ctx.Context.path_eval "%{_:share-generic}%/bin/curl"))
 
 let () =
   let reg = Component_registry.get () in

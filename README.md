@@ -8,7 +8,7 @@ to generate installers.
 
 ## Usage
 
-> `%{staging-curl:share}%/generic/bin/curl`
+> `%{staging-curl:share-abi}%/bin/curl`
 
 On Windows curl 7.81.0 or later will be available. Use this
 `curl` rather than Windows' `C:\Windows\System32\curl.exe` since the latter is
