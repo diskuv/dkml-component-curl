@@ -9,7 +9,7 @@ let execute_install ctx =
         v (Fpath.to_string
             (ctx.Context.path_eval "%{_:share-generic}%/unix_install.bc"))
         % "-target"
-        % Fpath.to_string (ctx.Context.path_eval "%{_:share-generic}%/bin/curl"))
+        % Fpath.to_string (ctx.Context.path_eval "%{_:share-abi}%/bin/curl"))
 
 let () =
   let reg = Component_registry.get () in
