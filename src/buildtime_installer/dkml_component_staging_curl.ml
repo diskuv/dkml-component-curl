@@ -3,15 +3,11 @@ open Dkml_install_register
 open Bos
 
 let execute_install ctx =
-  let ocamlrun =
-    ctx.Context.path_eval "%{staging-ocamlrun:share-abi}%/bin/ocamlrun"
-  in
-  if not Sys.win32 then
-    log_spawn_and_raise
+  if not (Context.Abi_v2.is_windows ctx.Context.host_abi_v2) then
+    Staging_ocamlrun_api.spawn_ocamlrun ctx
       Cmd.(
-        v (Fpath.to_string ocamlrun)
-        % Fpath.to_string
-            (ctx.Context.path_eval "%{_:share-generic}%/unix_install.bc")
+        v (Fpath.to_string
+            (ctx.Context.path_eval "%{_:share-generic}%/unix_install.bc"))
         % "-target"
         % Fpath.to_string (ctx.Context.path_eval "%{_:share-generic}%/bin/curl"))
 
