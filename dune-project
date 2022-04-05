@@ -18,7 +18,7 @@
  (description
   "The `staging-curl` component provides `curl` or `curl.exe` on all DKML installable platforms, including Windows.")
  (depends
-  (dkml-component-staging-ocamlrun (>= 4.12.1-1))
+  (dkml-component-staging-ocamlrun (>= 4.12.1))
   (dkml-install (>= 0.1.0))
   (dkml-install-runner (>= 0.1.0))
   (dune (>= 2.9))

@@ -10,7 +10,7 @@ license: "Apache-2.0"
 homepage: "https://github.com/diskuv/dkml-component-staging-curl"
 bug-reports: "https://github.com/diskuv/dkml-component-staging-curl/issues"
 depends: [
-  "dkml-component-staging-ocamlrun" {>= "4.12.1-1"}
+  "dkml-component-staging-ocamlrun" {>= "4.12.1"}
   "dkml-install" {>= "0.1.0"}
   "dkml-install-runner" {>= "0.1.0"}
   "dune" {>= "2.9" & >= "2.9"}
