@@ -11,7 +11,7 @@ let execute_install ctx =
         % "-target"
         % Fpath.to_string (ctx.Context.path_eval "%{_:share-abi}%/bin/curl"))
 
-let () =
+let register () =
   let reg = Component_registry.get () in
   Component_registry.add_component reg
     (module struct
