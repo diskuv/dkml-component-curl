@@ -20,6 +20,4 @@
  (depends
   (dkml-component-staging-ocamlrun (>= 4.12.1))
   (dkml-install (>= 0.1.0))
-  (dkml-install-runner (>= 0.1.0))
-  (dune (>= 2.9))
-  (dune-site (>= 2.9))))
+  (dune (>= 2.9))))
