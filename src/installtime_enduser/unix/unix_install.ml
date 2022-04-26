@@ -16,7 +16,7 @@ let () =
   let install_sequence =
     let* target_curl = Fpath.of_string !opt_target in
     let* src_curl = OS.Cmd.get_tool (Cmd.v "curl") in
-    Unix.mkdir (Fpath.to_string (Fpath.parent target_curl)) 0o750;
+    let* _was_created = OS.Dir.create ~mode:0o750 (Fpath.parent target_curl) in
     OS.Path.symlink ~target:target_curl src_curl
   in
   Rresult.R.error_msg_to_invalid_arg install_sequence
