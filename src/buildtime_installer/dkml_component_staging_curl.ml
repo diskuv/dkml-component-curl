@@ -3,7 +3,7 @@ open Dkml_install_register
 open Bos
 
 let execute_install ctx =
-  if not (Context.Abi_v2.is_windows ctx.Context.host_abi_v2) then
+  if not (Context.Abi_v2.is_windows ctx.Context.target_abi_v2) then
     Staging_ocamlrun_api.spawn_ocamlrun ctx
       Cmd.(
         v (Fpath.to_string
