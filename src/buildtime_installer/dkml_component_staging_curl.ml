@@ -6,8 +6,9 @@ let execute_install ctx =
   if not (Context.Abi_v2.is_windows ctx.Context.target_abi_v2) then
     Staging_ocamlrun_api.spawn_ocamlrun ctx
       Cmd.(
-        v (Fpath.to_string
-            (ctx.Context.path_eval "%{_:share-generic}%/unix_install.bc"))
+        v
+          (Fpath.to_string
+             (ctx.Context.path_eval "%{_:share-generic}%/unix_install.bc"))
         % "-target"
         % Fpath.to_string (ctx.Context.path_eval "%{_:share-abi}%/bin/curl"))
 
@@ -21,9 +22,11 @@ let register () =
 
       let depends_on = [ "staging-ocamlrun" ]
 
-      let install_user_subcommand ~component_name:_ ~subcommand_name ~ctx_t =
+      let install_user_subcommand ~component_name:_ ~subcommand_name ~fl ~ctx_t
+          =
         let doc = "Install Unix utilities" in
-        Result.ok
-        @@ Cmdliner.Term.
-             (const execute_install $ ctx_t, info subcommand_name ~doc)
+        Dkml_install_api.Forward_progress.Continue_progress
+          ( Cmdliner.Term.
+              (const execute_install $ ctx_t, info subcommand_name ~doc),
+            fl )
     end)
