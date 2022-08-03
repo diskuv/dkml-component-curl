@@ -1,7 +1,7 @@
 (lang dune 2.9)
 
 (name dkml-component-staging-curl)
-(version 0.1.0)
+(version 0.2.0)
 
 (generate_opam_files true)
 
@@ -18,4 +18,4 @@
   "The `staging-curl` component provides `curl` or `curl.exe` on all DKML installable platforms, including Windows.")
  (depends
   (dkml-component-staging-ocamlrun (and (>= 4.12.1~) (< 4.12.2~)))
-  (dkml-install (>= 0.1.0))))
+  (dkml-install (>= 0.2.0))))
