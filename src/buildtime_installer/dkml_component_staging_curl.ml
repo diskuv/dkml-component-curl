@@ -20,7 +20,7 @@ let register () =
 
       let component_name = "staging-curl"
 
-      let depends_on = [ "staging-ocamlrun" ]
+      let install_depends_on = [ "staging-ocamlrun" ]
 
       let install_user_subcommand ~component_name:_ ~subcommand_name ~fl ~ctx_t
           =
