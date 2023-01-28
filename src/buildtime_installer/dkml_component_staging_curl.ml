@@ -26,7 +26,8 @@ let register () =
           =
         let doc = "Install Unix utilities" in
         Dkml_install_api.Forward_progress.Continue_progress
-          ( Cmdliner.Term.
-              (const execute_install $ ctx_t, info subcommand_name ~doc),
+          ( Cmdliner.Cmd.v
+              (Cmdliner.Cmd.info subcommand_name ~doc)
+              Cmdliner.Term.(const execute_install $ ctx_t),
             fl )
     end)
